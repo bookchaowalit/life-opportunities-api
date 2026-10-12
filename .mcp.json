@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "opportunities": {
+      "command": ".venv/bin/opportunities-mcp",
+      "args": []
+    }
+  }
+}

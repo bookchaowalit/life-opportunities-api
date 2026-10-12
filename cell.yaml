@@ -1,0 +1,109 @@
+# Opportunities cell: an empty cell made from the retired SQLite tables (opportunities, opportunity_actions).
+# The domain had no rows when it left the control plane (2026-10-11); new features are built here.
+cell: opportunities
+title: Opportunities
+resources:
+  opportunity:
+    table: opportunities
+    plural: opportunities
+    filters:
+    - type
+    - status
+    - window_status
+    fields:
+      name:
+        type: text
+        required: true
+      description:
+        type: text
+      type:
+        type: enum
+        values:
+        - ai_automation
+        - saas
+        - service
+        - content
+        - consulting
+        - product
+        - other
+      tier:
+        type: int
+      status:
+        type: enum
+        values:
+        - researching
+        - validating
+        - active
+        - paused
+        - killed
+        - completed
+        default: researching
+      pain_level:
+        type: int
+      budget_level:
+        type: int
+      frequency_level:
+        type: int
+      ai_leverage_level:
+        type: int
+      competition_level:
+        type: int
+      distribution_level:
+        type: int
+      fit_level:
+        type: int
+      total_score:
+        type: real
+      window_status:
+        type: enum
+        values:
+        - opening
+        - open
+        - narrowing
+        - closed
+      estimated_window_months:
+        type: int
+      target_market:
+        type: text
+      revenue_model:
+        type: text
+      price_range:
+        type: text
+      competitors:
+        type: text
+      notes:
+        type: text
+  opportunity-action:
+    table: opportunity_actions
+    plural: opportunity-actions
+    filters:
+    - category
+    - action
+    fields:
+      url:
+        type: text
+        required: true
+      title:
+        type: text
+      source:
+        type: text
+      category:
+        type: text
+      trend_score:
+        type: int
+      action:
+        type: enum
+        values:
+        - act_on
+        - skip
+        - monitor
+        default: monitor
+      action_notes:
+        type: text
+      revenue_actual:
+        type: real
+        default: 0.0
+      revenue_expected:
+        type: real
+        default: 0.0
+

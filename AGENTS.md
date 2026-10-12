@@ -1,0 +1,19 @@
+# Agent Instructions
+
+- Human-facing replies are in Thai by default; keep code, commands and identifiers as-is.
+- Never print, commit or copy secrets: database URLs, tokens and keys live in Railway
+  variables and `~/.config/solo-opportunities/` (owner-only).
+- Tests use a throwaway local PostgreSQL and a fake platform; they must never reach
+  the hosted database or the hosted platform.
+- Run `.venv/bin/pytest -q` before committing. Migrations are append-only: never edit
+  an applied file, add a new numbered one.
+- `src/cellkit` is this repository's own service code (first generated from `cell.yaml`; the shared
+  generator was retired on 2026-10-12). Change it here; there is nothing upstream to sync from.
+  Cell-specific code lives in `src/solo_opportunities/`.
+- `opportunities-mcp` (stdio, see `.mcp.json`) is this cell's MCP server: tools `opportunities.<resource>.list|get|create|update|delete`
+  call the cell API with the caller's token (`EMPIRE_TOKEN`, `EMPIRE_TOKEN_FILE` or the `owner-mcp` automation token;
+  URL from `EMPIRE_OPPORTUNITIES_API`). Set `EMPIRE_MCP_READONLY=1` for list/get only. Never add actor, workspace or token arguments.
+- Deploys are manual (`railway up`) and change production; verify `/health` and one
+  authorized read afterwards.
+- Keep the solo-empire registry entry (`opportunities` in
+  `repository-catalog/registries/online-systems.yaml`) in sync.
