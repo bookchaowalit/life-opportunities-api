@@ -1,5 +1,4 @@
-# opportunities
-
+# life-opportunities-api
 The Opportunities cell: its own API (Railway, serverless) and its own Neon
 database, described by `cell.yaml` and served by the code in `src/cellkit/`, which
 this repository owns. It
@@ -8,8 +7,8 @@ HTTP with the caller's token.
 
 | | |
 |---|---|
-| API | Railway project `opportunities`, service `opportunities-api` (Serverless) |
-| Data | Neon project `opportunities`, database `opportunities` |
+| API | Railway project `life-opportunities-api`, service `opportunities-api` (Serverless) |
+| Data | Neon project `life-opportunities-api`, database `opportunities` |
 | Registry | solo-empire `repository-catalog/registries/online-systems.yaml` (`opportunities`) |
 
 ## API
