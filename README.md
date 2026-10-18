@@ -31,5 +31,6 @@ npm install && railway config apply && railway up --ci --service opportunities-a
 railway scale --service opportunities-api asia-southeast1-eqsg3a=1 us-east4-eqdc4a=0   # next to Neon and the platform
 ```
 
-Railway variables: `OPPORTUNITIES_DB_MODE=hosted`, `OPPORTUNITIES_DB_URL_API`,
+Railway variables: `SENTRY_DSN` (error reporting; unset = off, see
+`src/cellkit/_sentry.py`), `OPPORTUNITIES_DB_MODE=hosted`, `OPPORTUNITIES_DB_URL_API`,
 `OPPORTUNITIES_JWT_PUBLIC_KEY_PEM`, `OPPORTUNITIES_JWT_ISSUER`, `EMPIRE_PLATFORM_URL`.
